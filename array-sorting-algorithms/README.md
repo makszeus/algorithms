@@ -1,3 +1,5 @@
+# Array Sorting Algorithms
+
 | Algorithm      | Best Time Complexity     | Average Time Complexity  | Worst Time Complexity     | Space Complexity | Stability  |
 |----------------|--------------------------|--------------------------|---------------------------|------------------|------------|
 | Quicksort      | $$\color{orange}Ω(n\log(n))$$  |	 $$\color{orange}Θ(n\log(n))$$	|  $$\color{red}O(n^2)$$          |  $$\color{yellowgreen}O(log(n))$$ | No  |
