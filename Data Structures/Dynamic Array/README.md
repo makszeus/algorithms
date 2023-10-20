@@ -1,4 +1,5 @@
 # Dynamic Array
+
 The size of the array in the simplest case is fixed and must be known in advance.</br>
 <br>In practice, it is often convenient to use a dynamic array, which can be expanded as needed.</br>
 <br>**A dynamic array** is a data structure that provides random access and allows you to add or remove elements.</br>
