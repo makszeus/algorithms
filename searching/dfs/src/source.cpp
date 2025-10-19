@@ -1,36 +1,31 @@
 #include <iostream>
+#include <queue>
 #include <vector>
 
-void dfs (const std::vector<std::vector<int>> &graph, std::vector<bool> &visited,
-	std::vector<int> &result, int s) {
-	visited[s] = true;
-	result.push_back(s);
+void dfs (int start, std::vector<std::vector<int>>& graph, std::vector <bool>& visited) {
+    visited[start] = true;
+    std::cout << start << "\n";
 
-	for (int neighbor : graph[s]) {
-		if (!visited[neighbor]) {
-			dfs(graph, visited, result, neighbor);
-		}
-	}
+    for (const auto &u : graph[start]) {
+        if(!visited[u]) {
+            dfs(u, graph, visited);
+        }
+    }
 }
 
 int main() {
-	std::vector<std::vector<int>> graph = {
-        {1, 2},    	// 0 → 1, 2
-        {0, 3, 4},  // 1 → 0, 3, 4
-        {0, 5},     // 2 → 0, 5
-        {1},        // 3 → 1
-        {1},     	// 4 → 1
-        {2}      	// 5 → 2
-    };
 
-    std::vector<int> traversal;
-    std::vector<bool> isVisited(graph.size());
+    int n = 5;
+    std::vector<std::vector<int>> graph(n);
+    std::vector <bool> dfs_visited(n, false);
 
-    dfs(graph, isVisited, traversal, 0);
-    for (int node : traversal) {
-        std::cout << node << " ";
-    }
-    std::cout << std::endl;
+    graph[0] = {1, 2, 3, 4};
+    graph[1] = {0, 2, 3, 4};
+    graph[2] = {0, 1, 3, 4};
+    graph[3] = {0, 1, 2, 4};
+    graph[4] = {0, 1, 2, 3};
 
-	return 0;
+    dfs(0, graph, dfs_visited);
+
+    return 0;
 }
